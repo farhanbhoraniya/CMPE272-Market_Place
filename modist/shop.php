@@ -154,7 +154,7 @@ if(!empty($_GET["action"])) {
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li class="active" href="shop.php"><span>All Products</span></li>
+                        <li class="active" ><a href="shop.php">All Products</a></li>
                         <li><a href="house.php">Houses</a></li>
                         <li><a href="travel.php">Travel Experience</a></li>
                         <li><a href="cloud.php">Cloud Services</a></li>
