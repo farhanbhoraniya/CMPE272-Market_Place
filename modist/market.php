@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_URL, 'http://manavrajvanshi.com/common.php');

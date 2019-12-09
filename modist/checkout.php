@@ -1,3 +1,23 @@
+<?php 
+    session_start();
+    $cart_total = round($_SESSION["cart_total"], 2);
+    $discount_value = 0;
+    if($_POST["coupon"]) {
+        $coupon = $_POST["coupon"];
+
+        if ($coupon === "off5") {
+            $discount_value = round($cart_total * 0.05, 2);
+        }
+        else if ($coupon === "off10") {
+            $discount_value = round($cart_total * 0.10, 2);
+        }
+        else if ($coupon === "off25") {
+            $discount_value = round($cart_total * 0.25, 2);
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,7 +59,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item dropdown">
+	          <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
               	<a class="dropdown-item" href="shop.php">Shop</a>
@@ -49,9 +69,9 @@
               </div>
             </li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item active"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+	          <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span><?php echo isset($_SESSION["cart_item"]) ? sizeof($_SESSION["cart_item"]):0;?></a></li>
 
 	        </ul>
 	      </div>
@@ -63,89 +83,43 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-0 bread">Contact Us</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact</span></p>
+            <h1 class="mb-0 bread">Checkout</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Checkout</span></p>
           </div>
         </div>
       </div>
     </div>
-
-    <section class="ftco-section contact-section bg-light">
-      <div class="container">
-        <div class="row block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-white p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          
-          </div>
-
-          <div class="col-md-6 d-flex">
-          	<div id="map" class="bg-white"></div>
-          </div>
-        </div>
-        <div class="row d-flex mt-5 contact-info">
-          <div class="w-100"></div>
-          <div class="col-md-3 d-flex">
-          	<div class="info bg-white p-4">
-	            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="info bg-white p-4">
-	            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="info bg-white p-4">
-	            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="info bg-white p-4">
-	            <p><span>Website</span> <a href="#">yoursite.com</a></p>
-	          </div>
-          </div>
-        </div>
-      </div>
-    </section>
 		
-		<section class="ftco-section-parallax">
-      <div class="parallax-img d-flex align-items-center">
-        <div class="container">
-          <div class="row d-flex justify-content-center py-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-            	<h1 class="big">Subscribe</h1>
-              <h2>Subcribe to our Newsletter</h2>
-              <div class="row d-flex justify-content-center mt-5">
-                <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+		<section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 ftco-animate">
+	          <div class="row mt-5 pt-3 d-flex">
+	          	<div class="col-md-6 d-flex">
+	          		<div class="cart-detail cart-total bg-light p-3 p-md-1">
+	          			<h3 class="billing-heading mb-4">Cart Total</h3>
+	          			<p class="d-flex">
+		    						<span>Subtotal</span>
+		    						<span><?php echo number_format($cart_total, 2, '.', ''); ?></span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>Discount</span>
+		    						<span><?php echo number_format($discount_value, 2, '.', ''); ?></span>
+		    					</p>
+		    					<hr>
+		    					<p class="d-flex total-price">
+		    						<span>Total</span>
+		    						<span><?php echo number_format($cart_total - $discount_value, 2, '.', ''); ?></span>
+                                </p>
+                                <p><a href="order_placed.php"class="btn btn-primary py-3 px-4">Place an order</a></p>
+                                </div>
+                                
+	          	</div>
+	          </div>
+          </div> <!-- .col-md-8 -->
         </div>
       </div>
-    </section>
+    </section> <!-- .section -->
 
     <footer class="ftco-footer bg-light ftco-section">
       <div class="container">
@@ -235,6 +209,43 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+		$(document).ready(function(){
+
+		var quantitiy=0;
+		   $('.quantity-right-plus').click(function(e){
+		        
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        var quantity = parseInt($('#quantity').val());
+		        
+		        // If is not undefined
+		            
+		            $('#quantity').val(quantity + 1);
+
+		          
+		            // Increment
+		        
+		    });
+
+		     $('.quantity-left-minus').click(function(e){
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        var quantity = parseInt($('#quantity').val());
+		        
+		        // If is not undefined
+		      
+		            // Increment
+		            if(quantity>0){
+		            $('#quantity').val(quantity - 1);
+		            }
+		    });
+		    
+		});
+	</script>
     
   </body>
 </html>
