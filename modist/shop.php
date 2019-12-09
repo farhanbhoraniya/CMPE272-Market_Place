@@ -120,6 +120,10 @@ curl_close($curl);
                         <li><a href="cloud.php">Cloud Services</a></li>
                         <li><a href="chocolate.php">Chocolates</a></li>
                         <li><a href="marvel.php">Marvel Toys</a></li>
+                        <br>
+                        <li><a href="shophp.php">Highest Price</a></li>
+                        <li><a href="shoplp.php">Lowest Price</a></li>
+                        <li><a href="shoplexi.php">Sort A-Z</a></li>
                     </ul>
                 </div>
             </div>
