@@ -1,4 +1,5 @@
 <?php
+session_start();
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_URL, 'http://manavrajvanshi.com/common.php');
@@ -38,6 +39,45 @@ $varshitResult = curl_exec($curl);
 $varshit = json_decode(
     $varshitResult, true);
 curl_close($curl);
+$res = array_merge($manav, $karan, $farhan, $varshit, $kedar);
+
+?>
+
+<?php
+
+if(!empty($_GET["action"])) {
+    switch($_GET["action"]) {
+        case "add":
+            
+            $key = array_search($_GET["id"], array_column($res, 'id'));
+            $productByCode = $res[$key];
+            
+            $itemArray = array($productByCode["id"]=>array('name'=>$productByCode["name"], 'id'=>$productByCode["id"], 'quantity'=>1, 'price'=>$productByCode["price"], 'image'=>$productByCode["image"]));
+            
+            if(!empty($_SESSION["cart_item"])) {
+                if(in_array($productByCode["id"],array_keys($_SESSION["cart_item"]))) {
+                    foreach($_SESSION["cart_item"] as $k => $v) {
+                            if($productByCode["id"] == $v["id"]) {
+                                if(empty($_SESSION["cart_item"][$v["id"]]["quantity"])) {
+                                    $_SESSION["cart_item"][$v["id"]]["quantity"] = 0;
+                                }
+                                $_SESSION["cart_item"][$v["id"]]["quantity"] += 1;
+                            }
+                    }
+                } else {
+                    
+                    foreach($itemArray as $k => $v) {
+                        $_SESSION["cart_item"][$k] = $v;
+                    }
+                }
+            } else {
+                foreach($itemArray as $k => $v) {
+                    $_SESSION["cart_item"][$k] = $v;
+                }
+            }
+            break;
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -84,16 +124,16 @@ curl_close($curl);
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown04">
-                                <a class="dropdown-item" href="shop.html">Shop</a>
+                                <a class="dropdown-item" href="shop.php">Shop</a>
                                 <a class="dropdown-item" href="product-single.html">Single Product</a>
-                                <a class="dropdown-item" href="cart.html">Cart</a>
+                                <a class="dropdown-item" href="cart.php">Cart</a>
                                 <a class="dropdown-item" href="checkout.html">Checkout</a>
                             </div>
                         </li>
                         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                        <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span><?php echo isset($_SESSION["cart_item"]) ? sizeof($_SESSION["cart_item"]):0;?></a></li>
 
                     </ul>
                 </div>
@@ -155,7 +195,8 @@ curl_close($curl);
                                                     </div>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
-                                                        <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                        
+                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                         <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                     </p>
                                                 </div>
@@ -186,7 +227,7 @@ curl_close($curl);
                                                     </div>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
-                                                        <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                         <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                     </p>
                                                 </div>
@@ -217,7 +258,7 @@ curl_close($curl);
                                                         </div>
                                                         <hr>
                                                         <p class="bottom-area d-flex">
-                                                            <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                            <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                             <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                         </p>
                                                     </div>
@@ -248,7 +289,7 @@ curl_close($curl);
                                                     </div>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
-                                                        <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                         <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                     </p>
                                                 </div>
@@ -279,7 +320,7 @@ curl_close($curl);
                                                     </div>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
-                                                        <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                         <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                     </p>
                                                 </div>
