@@ -13,7 +13,7 @@
             echo "Error while subscribing";
         }
     }
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,25 +47,24 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">MARXET PLACE</a>
+        <?php
+            if(isset($_SESSION['name'])){
+                echo "<a class='navbar-brand' href='index.php'>WELCOME". $_SESSION['name']."</a>";
+            }
+            else{
+                echo "<a class='navbar-brand' href='index.php'>MARXETPLACE</a>";
+            }
+        ?>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="shop.php">Shop</a>
-                        <a class="dropdown-item" href="product-single.html">Single Product</a>
-                        <a class="dropdown-item" href="cart.php">Cart</a>
-                        <a class="dropdown-item" href="checkout.html">Checkout</a>
-                    </div>
-                </li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="shop.php" class="nav-link">Products</a></li>
+                <li class="nav-item active"><a href="login.php" class="nav-link">Log In</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
@@ -75,15 +74,15 @@
 </nav>
 <!-- END nav -->
 
-<div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
-    <div class="overlay"></div>
+<div class="hero-wrap js-fullheight" style="background-image: url('images/ecommerce_1.jpg');">
+<!--    <div class="overlay"></div>-->
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
             <h3 class="v">MARXET PLACE - Time to buy at one place</h3>
             <h3 class="vr">Since - 2019</h3>
             <div class="col-md-11 ftco-animate text-center">
-                <h1>Get Abundance</h1>
-                <h2><span>Ready with Cart</span></h2>
+                <h1 style="color: lightgreen">Get Abundance</h1>
+<!--                <h2><span>Ready with Cart</span></h2>-->
             </div>
             <div class="mouse">
                 <a href="#" class="mouse-icon">
@@ -95,182 +94,6 @@
 </div>
 
 <div class="goto-here"></div>
-
-<section class="ftco-section ftco-product">
-    <div class="container">
-        <div class="row justify-content-center mb-3 pb-3">
-            <div class="col-md-12 heading-section text-center ftco-animate">
-                <h1 class="big">Trending</h1>
-                <h2 class="mb-4">Trending</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-slider owl-carousel ftco-animate">
-                    <div class="item">
-                        <div class="product">
-                            <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template">
-                                <span class="status">30%</span>
-                            </a>
-                            <div class="text pt-3 px-3">
-                                <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-                                    </div>
-                                    <div class="rating">
-                                        <p class="text-right">
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product">
-                            <a href="#" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="Colorlib Template"></a>
-                            <div class="text pt-3 px-3">
-                                <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span>$120.00</span></p>
-                                    </div>
-                                    <div class="rating">
-                                        <p class="text-right">
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product">
-                            <a href="#" class="img-prod"><img class="img-fluid" src="images/product-3.jpg" alt="Colorlib Template"></a>
-                            <div class="text pt-3 px-3">
-                                <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span>$120.00</span></p>
-                                    </div>
-                                    <div class="rating">
-                                        <p class="text-right">
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product">
-                            <a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="Colorlib Template"></a>
-                            <div class="text pt-3 px-3">
-                                <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span>$120.00</span></p>
-                                    </div>
-                                    <div class="rating">
-                                        <p class="text-right">
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product">
-                            <a href="#" class="img-prod"><img src="images/product-5.jpg" alt="Colorlib Template">
-                                <span class="status">30%</span>
-                            </a>
-                            <div class="text pt-3 px-3">
-                                <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-                                    </div>
-                                    <div class="rating">
-                                        <p class="text-right">
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product">
-                            <a href="#" class="img-prod"><img src="images/product-6.jpg" alt="Colorlib Template"></a>
-                            <div class="text pt-3 px-3">
-                                <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span>$120.00</span></p>
-                                    </div>
-                                    <div class="rating">
-                                        <p class="text-right">
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                            <span class="ion-ios-star-outline"></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/bg_2.jpg);">
-                <a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
-                    <span class="icon-play"></span>
-                </a>
-            </div>
-            <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
-                <div class="heading-section-bold mb-5 mt-md-5">
-                    <div class="ml-md-0">
-                        <h2 class="mb-4">MARXET PLACE <br>Online <br> <span>All in One Store</span></h2>
-                    </div>
-                </div>
-                <div class="pb-md-5">
-                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="ftco-section bg-light">
     <div class="container">
@@ -286,27 +109,7 @@
             <div class="col-sm col-md-6 col-lg ftco-animate">
                 <div class="product">
                     <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template"></a>
-                    <div class="text py-3 px-3">
-                        <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                            <div class="rating">
-                                <p class="text-right">
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <hr>
-                        <p class="bottom-area d-flex">
-                            <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                        </p>
+                    <div class="text py-4 px-3">
                     </div>
                 </div>
             </div>
@@ -395,11 +198,24 @@
     </div>
 </section>
 
-<section class="ftco-section ftco-section-more img" style="background-image: url(images/bg_5.jpg);">
+<section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
     <div class="container">
-        <div class="row justify-content-center mb-3 pb-3">
-            <div class="col-md-12 heading-section ftco-animate">
-                <h2>Summer Sale</h2>
+        <div class="row">
+            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/bg_2.jpg);">
+                <a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+                    <span class="icon-play"></span>
+                </a>
+            </div>
+            <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+                <div class="heading-section-bold mb-5 mt-md-5">
+                    <div class="ml-md-0">
+                        <h2 class="mb-4">MARXET PLACE <br>Online <br> <span>All in One Store</span></h2>
+                    </div>
+                </div>
+                <div class="pb-md-5">
+                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -495,62 +311,6 @@
     </div>
 </section>
 
-
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center mb-3 pb-3">
-            <div class="col-md-12 heading-section text-center ftco-animate">
-                <h1 class="big">Blog</h1>
-                <h2>Recent Blog</h2>
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-                    </a>
-                    <div class="text mt-3 d-block">
-                        <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                        <div class="meta mb-3">
-                            <div><a href="#">Dec 6, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-                    </a>
-                    <div class="text mt-3">
-                        <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                        <div class="meta mb-3">
-                            <div><a href="#">Dec 6, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-                    </a>
-                    <div class="text mt-3">
-                        <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                        <div class="meta mb-3">
-                            <div><a href="#">Dec 6, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_4.jpg);">
     <div class="container">
         <div class="row justify-content-center py-5">
@@ -559,7 +319,7 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="10000">0</strong>
+                                <strong class="number" data-number="5000000">0</strong>
                                 <span>Happy Customers</span>
                             </div>
                         </div>
@@ -567,7 +327,7 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="100">0</strong>
+                                <strong class="number" data-number="16584">0</strong>
                                 <span>Branches</span>
                             </div>
                         </div>
@@ -575,7 +335,7 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="1000">0</strong>
+                                <strong class="number" data-number="2165">0</strong>
                                 <span>Partner</span>
                             </div>
                         </div>
@@ -583,7 +343,7 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="100">0</strong>
+                                <strong class="number" data-number="34">0</strong>
                                 <span>Awards</span>
                             </div>
                         </div>
@@ -721,7 +481,7 @@
             <div class="col-md-12 text-center">
 
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>
