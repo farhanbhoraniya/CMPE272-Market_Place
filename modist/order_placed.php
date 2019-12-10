@@ -70,10 +70,12 @@
     <section class="ftco-section">
         <?php
             session_start();
+            require_once("send_email.php");
             $to = "farhanbhoraniya@gmail.com";
             $subject = "Order placed successfully";
             $message = "Your order has been received";
-            $retval = mail($to, $subject, $message);
+            $retval = send_email($to, $subject, $message);
+            // $retval = mail($to, $subject, $message);
             unset($_SESSION["cart_item"]);
             if( $retval == true ) {
                 echo "Message sent successfully...";

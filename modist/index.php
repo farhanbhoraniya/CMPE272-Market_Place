@@ -1,3 +1,19 @@
+<?php 
+    session_start();
+    require_once("send_email.php");
+    if(!empty($_GET["email"])) {
+        $email = $_GET["email"];
+        echo $email;
+        $subject = "You have been subscribed to Newsletter";
+        $message = "Thank you for subscribing to our Newsletter";
+        $retval = send_email($email, $subject, $message);
+        if( $retval == true ) {
+            echo "Subscribed successfully";
+        }else {
+            echo "Error while subscribing";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -633,9 +649,9 @@
                     <h2>Subcribe to our Newsletter</h2>
                     <div class="row d-flex justify-content-center mt-5">
                         <div class="col-md-8">
-                            <form action="#" class="subscribe-form">
+                            <form action="index.php?action=email" class="subscribe-form" method="GET">
                                 <div class="form-group d-flex">
-                                    <input type="text" class="form-control" placeholder="Enter email address">
+                                    <input type="text" class="form-control" placeholder="Enter email address" name="email">
                                     <input type="submit" value="Subscribe" class="submit px-3">
                                 </div>
                             </form>
