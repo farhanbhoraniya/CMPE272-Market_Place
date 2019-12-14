@@ -3,7 +3,7 @@
     if($_SESSION['auth'] == true){
        
     }else{
-        header("location: marketUserSection.php");
+        header("location: login.php");
         echo "Not Logged In";
     }
 ?>

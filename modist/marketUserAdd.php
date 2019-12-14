@@ -19,12 +19,8 @@
         header("location: login.php");
     } else {
         $_SESSION["userAdded"] = "User Not Added.";
-        header("location: marketUserSection.php");
+        header("location: signup.php");
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
     $conn->close();
-?>
-<?php
-    unset($_SESSION["userAdded"]);
-    unset($_SESSION["error"]);
 ?>
