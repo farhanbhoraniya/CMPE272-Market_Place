@@ -92,3 +92,7 @@ session_start();
 
 
 
+<?php
+    unset($_SESSION["userAdded"]);
+    unset($_SESSION["error"]);
+?>
