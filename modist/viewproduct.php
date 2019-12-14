@@ -1,5 +1,4 @@
 <?php
-session_start();
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_URL, 'http://manavrajvanshi.com/common.php');
@@ -39,45 +38,6 @@ $varshitResult = curl_exec($curl);
 $varshit = json_decode(
     $varshitResult, true);
 curl_close($curl);
-$res = array_merge($manav, $karan, $farhan, $varshit, $kedar);
-
-?>
-
-<?php
-
-if(!empty($_GET["action"])) {
-    switch($_GET["action"]) {
-        case "add":
-            
-            $key = array_search($_GET["id"], array_column($res, 'id'));
-            $productByCode = $res[$key];
-            
-            $itemArray = array($productByCode["id"]=>array('name'=>$productByCode["name"], 'id'=>$productByCode["id"], 'quantity'=>1, 'price'=>$productByCode["price"], 'image'=>$productByCode["image"]));
-            
-            if(!empty($_SESSION["cart_item"])) {
-                if(in_array($productByCode["id"],array_keys($_SESSION["cart_item"]))) {
-                    foreach($_SESSION["cart_item"] as $k => $v) {
-                            if($productByCode["id"] == $v["id"]) {
-                                if(empty($_SESSION["cart_item"][$v["id"]]["quantity"])) {
-                                    $_SESSION["cart_item"][$v["id"]]["quantity"] = 0;
-                                }
-                                $_SESSION["cart_item"][$v["id"]]["quantity"] += 1;
-                            }
-                    }
-                } else {
-                    
-                    foreach($itemArray as $k => $v) {
-                        $_SESSION["cart_item"][$k] = $v;
-                    }
-                }
-            } else {
-                foreach($itemArray as $k => $v) {
-                    $_SESSION["cart_item"][$k] = $v;
-                }
-            }
-            break;
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -124,16 +84,16 @@ if(!empty($_GET["action"])) {
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown04">
-                                <a class="dropdown-item" href="shop.php">Shop</a>
+                                <a class="dropdown-item" href="shop.html">Shop</a>
                                 <a class="dropdown-item" href="product-single.html">Single Product</a>
-                                <a class="dropdown-item" href="cart.php">Cart</a>
+                                <a class="dropdown-item" href="cart.html">Cart</a>
                                 <a class="dropdown-item" href="checkout.html">Checkout</a>
                             </div>
                         </li>
                         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span><?php echo isset($_SESSION["cart_item"]) ? sizeof($_SESSION["cart_item"]):0;?></a></li>
+                        <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
                     </ul>
                 </div>
@@ -171,14 +131,75 @@ if(!empty($_GET["action"])) {
         <section class="ftco-section bg-light">
             <div class="container-fluid" >
                 <div class="row">
-                        <?php
+                    <?php
+                    $curl = curl_init();
+                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                    // echo "1";
+                    // echo $_SERVER['QUERY_STRING'];
+                    //$currentMarketPlace = array();
+                    parse_str($_SERVER['QUERY_STRING']);
+                    if((intval($id) >= 101) && (intval($id) <= 110))
+                    {
+                        $currentMarketPlace = $manav;
+                        curl_setopt($curl, CURLOPT_URL, 'http://manavrajvanshi.com/productViewIncrementer.php?product='. $id);
+                    }
+                    else if((intval($id) >= 201) && (intval($id) <= 210))
+                    {
+                        $currentMarketPlace = $karan;
+                        curl_setopt($curl, CURLOPT_URL, 'http://kpsjsuprojects.com/productViewIncrementer.php?product='. $id);
+                    }
+                    else if((intval($id) >= 301) && (intval($id) <= 310))
+                    {
+                        $currentMarketPlace = $farhan;
+                        curl_setopt($curl, CURLOPT_URL, 'http://farhanbhoraniya.com/productViewIncrementer.php?product='. $id);
+                    }
+                    else if((intval($id) >= 401) && (intval($id) <= 410))
+                    {
+                        $currentMarketPlace = $farhan;
+                        //Enter Kedar's View Incrementer URL
+                        curl_setopt($curl, CURLOPT_URL, ''. $id);
+                    }
+                    else if((intval($id) >= 501) && (intval($id) <= 510))
+                    {
+                        $currentMarketPlace = $varshit;
+                        curl_setopt($curl, CURLOPT_URL, 'http://varshitbuilds.com/fwa1/ViewIncrementer.php?product='. $id);
+                    }
+                    curl_exec($curl);
+                    //print_r($currentMarketPlace);
+                   // parse_str($_SERVER['QUERY_STRING']);
+                    //print_r($currentMarketPlace[($id - 1)%10]);
+                    echo '<div class="col-sm col-md-6">
+                        <img src='.$currentMarketPlace[($id - 1)%10]["image"].' style="width:90%;" />
+                        </div>
+                        <div class="col-md-6">
+                            <h1>'.$currentMarketPlace[($id - 1)%10]["name"].'</h1>
+                            <h2>'.$currentMarketPlace[($id - 1)%10]["description"].'</h2>
+                            <h3>Price: $'.$currentMarketPlace[($id - 1)%10]["price"].'</h3>
+                            <br />
+                            <br />
+                            <form action="" method="POST">
+                            <fieldset>
+                            <legend>Submit Feedback</legend>
+                                <div class="form-group">
+                                <label for="rating">Rating(0-5):</label><input id="rating" type="number" name="rating" value="3" min="0" max="5" step="0.1"/><br />
+                                </div>
+                                <div class="form-group">
+    <label for="review">Review:</label>
+    <textarea class="form-control" id="review" rows="3" required></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit Feedback</button>
+  </fieldset>
+                            </form>
+                        </div>';
+                    ?>
+                        <!-- <?php
                         foreach( $farhan as $item){
                             echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate" id = "id01">
                                             <div class="product">
-                                            <a href="viewproduct.php?id=' .$item["id"].'" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
+                                            <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
                                             </a>
                                                 <div class="text py-3 px-3">
-                                                    <h3><a href="viewproduct.php?id=' .$item["id"].'">'.$item["name"].'</a></h3>
+                                                    <h3><a href="#">'.$item["name"].'</a></h3>
                                                     <div class="d-flex">
                                                         <div class="pricing">
                                                             <p class="price"><span>$'.$item["price"].'</span></p>
@@ -195,8 +216,7 @@ if(!empty($_GET["action"])) {
                                                     </div>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
-                                                        
-                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                        <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                         <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                     </p>
                                                 </div>
@@ -207,10 +227,10 @@ if(!empty($_GET["action"])) {
                         foreach( $varshit as $item){
                             echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate" id = "id01">
                                             <div class="product">
-                                            <a href="viewproduct.php?id=' .$item["id"].'" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
+                                            <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
                                             </a>
                                                 <div class="text py-3 px-3">
-                                                    <h3><a href="viewproduct.php?id=' .$item["id"].'">'.$item["name"].'</a></h3>
+                                                    <h3><a href="#">'.$item["name"].'</a></h3>
                                                     <div class="d-flex">
                                                         <div class="pricing">
                                                             <p class="price"><span>$'.$item["price"].'</span></p>
@@ -227,7 +247,7 @@ if(!empty($_GET["action"])) {
                                                     </div>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
-                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                        <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                         <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                     </p>
                                                 </div>
@@ -238,10 +258,10 @@ if(!empty($_GET["action"])) {
                         foreach( $karan as $item){
                                 echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate">
                                                 <div class="product">
-                                                <a href="viewproduct.php?id=' .$item["id"].'" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
+                                                <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
                                                 </a>
                                                     <div class="text py-3 px-3">
-                                                        <h3><a href="viewproduct.php?id=' .$item["id"].'">'.$item["name"].'</a></h3>
+                                                        <h3><a href="#">'.$item["name"].'</a></h3>
                                                         <div class="d-flex">
                                                             <div class="pricing">
                                                                 <p class="price"><span>$'.$item["price"].'</span></p>
@@ -258,7 +278,7 @@ if(!empty($_GET["action"])) {
                                                         </div>
                                                         <hr>
                                                         <p class="bottom-area d-flex">
-                                                            <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                            <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                             <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                         </p>
                                                     </div>
@@ -269,10 +289,10 @@ if(!empty($_GET["action"])) {
                         foreach( $kedar as $item){
                             echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate" id = "id01">
                                             <div class="product">
-                                            <a href="viewproduct.php?id=' .$item["id"].'" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
+                                            <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
                                             </a>
                                                 <div class="text py-3 px-3">
-                                                    <h3><a href="viewproduct.php?id=' .$item["id"].'">'.$item["name"].'</a></h3>
+                                                    <h3><a href="#">'.$item["name"].'</a></h3>
                                                     <div class="d-flex">
                                                         <div class="pricing">
                                                             <p class="price"><span>$'.$item["price"].'</span></p>
@@ -289,7 +309,7 @@ if(!empty($_GET["action"])) {
                                                     </div>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
-                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                        <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                         <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                     </p>
                                                 </div>
@@ -300,10 +320,10 @@ if(!empty($_GET["action"])) {
                         foreach( $manav as $item){
                             echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate" id = "id01">
                                             <div class="product">
-                                            <a href="viewproduct.php?id=' .$item["id"].'" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
+                                            <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
                                             </a>
                                                 <div class="text py-3 px-3">
-                                                    <h3><a href="viewproduct.php?id=' .$item["id"].'">'.$item["name"].'</a></h3>
+                                                    <h3><a href="#">'.$item["name"].'</a></h3>
                                                     <div class="d-flex">
                                                         <div class="pricing">
                                                             <p class="price"><span>$'.$item["price"].'</span></p>
@@ -320,7 +340,7 @@ if(!empty($_GET["action"])) {
                                                     </div>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
-                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                        <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                         <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                     </p>
                                                 </div>
@@ -328,7 +348,7 @@ if(!empty($_GET["action"])) {
                                         </div>
                                         ');
                         }
-                        ?>
+                        ?> -->
                 </div>
             </div>
         </section>
