@@ -15,8 +15,8 @@
     $email = $_SESSION['email'];
     $sql = "UPDATE marketUsers SET name = '$name', password = '$password' WHERE email = '$email'" ;
     if ($conn->query($sql) === TRUE) {
-        $_SESSION['name'] = $name;
-        header("location: shop.php");
+        session_unset();
+        header("location: login.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
