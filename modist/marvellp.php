@@ -100,7 +100,7 @@ curl_close($curl);
                 <li><a href="travel.php">Travel Experience</a></li>
                 <li><a href="cloud.php">Cloud Services</a></li>
                 <li><a href="chocolate.php">Chocolates</a></li>
-                <li class="active" ><a href="marvel.php">Marvel Toys</a></li>
+                <li class="active" ><a href="marvel.php">Marvel  Products</a></li>
                 <br>
                 <li><a href="marvelhp.php">Highest Price</a></li>
                 <li class="active"><a href="marvellp.php">Lowest Price</a></li>
