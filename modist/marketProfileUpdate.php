@@ -81,25 +81,17 @@ session_start();
 
                     <div class="signin-form">
                         <h2 class="form-title">Update</h2>
-                        <form class="register-form"  action = "marketUserLogin.php" method = "POST" onsubmit="login()" id="loginForm" >
+                        <form class="register-form"  action = "marketProfileUpdater.php" method = "POST" id="updateForm" >
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name= "name" id="name" placeholder="Enter Name" value = "<?php echo $_SESSION['name']; ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="passwordLogin" id="passwordLogin" placeholder="Password"/>
-                            </div>
-                            <div class = "form-group">
-                                <?php
-                                if(isset($_SESSION["error"])){
-                                    $error = $_SESSION["error"];
-                                    echo "<span>$error</span>";
-                                }
-                                ?>
+                                <input type="password" name="password" id="password" placeholder="Password" required/>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Update Profile"/>
+                                <input type="submit" name="Update" id="Update" class="form-submit" value="Update Profile"/>
                             </div>
                         </form>
                     </div>
@@ -177,18 +169,6 @@ session_start();
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main_1.js"></script>
-    <script>
-        function login(){
-            let username = document.getElementById('emailLogin').value;
-            let password = document.getElementById('passwordLogin').value;
-
-            if(username.length > 0 && password.length > 0){
-                document.getElementById("loginForm").submit();
-            }else{
-                alert("Invalid Credentials");
-            }
-        }
-    </script>
     </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
     </html>
 
