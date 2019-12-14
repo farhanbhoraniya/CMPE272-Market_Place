@@ -135,7 +135,7 @@ curl_close($curl);
                                                         </div>
                                                         <hr>
                                                         <p class="bottom-area d-flex">
-                                                            <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                            <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                                             <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
                                                         </p>
                                                     </div>
