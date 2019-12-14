@@ -56,7 +56,7 @@ curl_close($curl);
     <div class="container">
         <?php
             if(isset($_SESSION['name'])){
-                echo "<a class='navbar-brand' href='index.php'>WELCOME". $_SESSION['name']."</a>";
+                echo "<a class='navbar-brand' href='index.php'>WELCOME ". $_SESSION['name']."</a>";
             }
             else{
                 echo "<a class='navbar-brand' href='index.php'>MARXETPLACE</a>";
@@ -101,6 +101,7 @@ curl_close($curl);
                 <li><a href="chocolate.php">Chocolates</a></li>
                 <li><a href="marvel.php">Marvel Products</a></li>
                 <br>
+                <li><a href="travelmv.php">Most Visited</a></li>
                 <li><a href="travelhp.php">Highest Price</a></li>
                 <li><a href="travellp.php">Lowest Price</a></li>
                 <li><a href="travellexi.php">Sort A-Z</a></li>

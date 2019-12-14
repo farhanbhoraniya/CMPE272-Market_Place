@@ -2,20 +2,20 @@
 session_start();
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_URL, 'http://kpsjsuprojects.com/common_products.php');
-$karanResult = curl_exec($curl);
-$karan = json_decode(
-    $karanResult, true
+curl_setopt($curl, CURLOPT_URL, 'http://yumbox.site/productjson.php');
+$kedarResult = curl_exec($curl);
+$kedar = json_decode(
+    $kedarResult, true
 );
-//function cmp($a, $b) {
-//    return strcmp($a["name"], $b["name"]);
-//}
-//usort($karan, "cmp");
+function cmp($a, $b) {
+    return strcmp($a["views"], $b["views"]);
+}
+usort($kedar, "cmp");
 // This is for price in descending order
-    usort($karan, function($a, $b) {
-        if($a['price']==$b['price']) return 0;
-        return $a['price'] < $b['price']?1:-1;
-    });
+//    usort($karan, function($a, $b) {
+//        if($a['price']==$b['price']) return 0;
+//        return $a['price'] < $b['price']?1:-1;
+//    });
 curl_close($curl);
 
 ?>
@@ -90,21 +90,21 @@ curl_close($curl);
         </div>
     </div>
 </div>
-<div class="row mt-5">
+<div class="row mt-5">  
     <div class="col text-center">
         <div class="block-27">
             <ul>
                 <li><a href="shop.php">All Products</a></li>
                 <li><a href="house.php">Houses</a></li>
                 <li><a href="travel.php">Travel Experience</a></li>
-                <li class="active" ><a href="cloud.php">Cloud Services</a></li>
-                <li><a href="chocolate.php">Chocolates</a></li>
+                <li><a href="cloud.php">Cloud Services</a></li>
+                <li class="active" ><a href="chocolate.php">Chocolates</a></li>
                 <li><a href="marvel.php">Marvel Products</a></li>
                 <br>
-                <li><a href="cloudmv.php">Most Visited</a></li>
-                <li class="active"><a href="cloudhp.php">Highest Price</a></li>
-                <li><a href="cloudlp.php">Lowest Price</a></li>
-                <li><a href="cloudlexi.php">Sort A-Z</a></li>
+                <li class="active"><a href="chocolatemv.php">Most Visited</a></li>
+                <li><a href="chocolatehp.php">Highest Price</a></li>
+                <li><a href="chocolatelp.php">Lowest Price</a></li>
+                <li><a href="chocolatelexi.php">Sort A-Z</a></li>
             </ul>
         </div>
     </div>
@@ -113,7 +113,7 @@ curl_close($curl);
     <div class="container-fluid" >
         <div class="row">
             <?php
-            foreach( $karan as $item){
+            foreach( $kedar as $item){
                 echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate">
                                                 <div class="product">
                                                 <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
@@ -122,7 +122,7 @@ curl_close($curl);
                                                         <h3><a href="#">'.$item["name"].'</a></h3>
                                                         <div class="d-flex">
                                                             <div class="pricing">
-                                                                <p class="price"><span>$'.$item["price"].' / hr.</span></p>
+                                                                <p class="price"><span>$'.$item["price"].'</span></p>
                                                             </div>
                                                             <div class="rating">
                                                                 <p class="text-right">

@@ -84,7 +84,7 @@ usort($res, function($a, $b) {
     <div class="container">
         <?php
             if(isset($_SESSION['name'])){
-                echo "<a class='navbar-brand' href='index.php'>WELCOME". $_SESSION['name']."</a>";
+                echo "<a class='navbar-brand' href='index.php'>WELCOME ". $_SESSION['name']."</a>";
             }
             else{
                 echo "<a class='navbar-brand' href='index.php'>MARXETPLACE</a>";
@@ -129,6 +129,7 @@ usort($res, function($a, $b) {
                 <li><a href="chocolate.php">Chocolates</a></li>
                 <li><a href="marvel.php">Marvel Products</a></li>
                 <br>
+                <li><a href="shopmostvisit.php">Most Visited</a></li>
                 <li class="active" ><a href="shophp.php">Highest Price</a></li>
                 <li><a href="shoplp.php">Lowest Price</a></li>
                 <li><a href="shoplexi.php">Sort A-Z</a></li>

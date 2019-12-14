@@ -12,10 +12,10 @@ $karan = json_decode(
 //}
 //usort($karan, "cmp");
 // This is for price in descending order
-    usort($karan, function($a, $b) {
-        if($a['price']==$b['price']) return 0;
-        return $a['price'] < $b['price']?1:-1;
-    });
+usort($karan, function($a, $b) {
+    if($a['views']==$b['views']) return 0;
+    return $a['views'] > $b['views']?1:-1;
+});
 curl_close($curl);
 
 ?>
@@ -101,8 +101,8 @@ curl_close($curl);
                 <li><a href="chocolate.php">Chocolates</a></li>
                 <li><a href="marvel.php">Marvel Products</a></li>
                 <br>
-                <li><a href="cloudmv.php">Most Visited</a></li>
-                <li class="active"><a href="cloudhp.php">Highest Price</a></li>
+                <li class="active"><a href="cloudmv.php">Most Visited</a></li>
+                <li><a href="cloudhp.php">Highest Price</a></li>
                 <li><a href="cloudlp.php">Lowest Price</a></li>
                 <li><a href="cloudlexi.php">Sort A-Z</a></li>
             </ul>

@@ -1,25 +1,53 @@
 <?php
-session_start();
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_URL, 'http://manavrajvanshi.com/common.php');
+$manavResult= curl_exec($curl);
+$manav = json_decode(
+    $manavResult, true);
+curl_close($curl);
+
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_URL, 'http://kpsjsuprojects.com/common_products.php');
 $karanResult = curl_exec($curl);
 $karan = json_decode(
-    $karanResult, true
-);
-//function cmp($a, $b) {
-//    return strcmp($a["name"], $b["name"]);
-//}
-//usort($karan, "cmp");
-// This is for price in descending order
-    usort($karan, function($a, $b) {
-        if($a['price']==$b['price']) return 0;
-        return $a['price'] < $b['price']?1:-1;
-    });
+    $karanResult, true);
 curl_close($curl);
 
-?>
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_URL, 'http://farhanbhoraniya.com/products_json.php');
+$farhanResult = curl_exec($curl);
+$farhan = json_decode(
+    $farhanResult, true);
+curl_close($curl);
 
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_URL, 'http://yumbox.site/productjson.php');
+$kedarResult = curl_exec($curl);
+$kedar = json_decode(
+    $kedarResult, true);
+curl_close($curl);
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_URL, 'http://varshitbuilds.com/fwa1/popp.php');
+$varshitResult = curl_exec($curl);
+$varshit = json_decode(
+    $varshitResult, true);
+
+curl_close($curl);
+
+$res = array_merge($manav,$karan,$kedar,$varshit,$farhan);
+usort($res, function($a, $b) {
+    if($a['views']==$b['views']) return 0;
+    return $a['views'] < $b['views']?1:-1;
+});
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,17 +122,17 @@ curl_close($curl);
     <div class="col text-center">
         <div class="block-27">
             <ul>
-                <li><a href="shop.php">All Products</a></li>
+                <li class="active" href="shop.php"><span>All Products</span></li>
                 <li><a href="house.php">Houses</a></li>
                 <li><a href="travel.php">Travel Experience</a></li>
-                <li class="active" ><a href="cloud.php">Cloud Services</a></li>
+                <li><a href="cloud.php">Cloud Services</a></li>
                 <li><a href="chocolate.php">Chocolates</a></li>
                 <li><a href="marvel.php">Marvel Products</a></li>
                 <br>
-                <li><a href="cloudmv.php">Most Visited</a></li>
-                <li class="active"><a href="cloudhp.php">Highest Price</a></li>
-                <li><a href="cloudlp.php">Lowest Price</a></li>
-                <li><a href="cloudlexi.php">Sort A-Z</a></li>
+                <li  class="active"><a href="shopmostvisit.php">Most Visited</a></li>
+                <li><a href="shophp.php">Highest Price</a></li>
+                <li><a href="shoplp.php">Lowest Price</a></li>
+                <li><a href="shoplexi.php">Sort A-Z</a></li>
             </ul>
         </div>
     </div>
@@ -113,36 +141,36 @@ curl_close($curl);
     <div class="container-fluid" >
         <div class="row">
             <?php
-            foreach( $karan as $item){
-                echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate">
-                                                <div class="product">
-                                                <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
-                                                </a>
-                                                    <div class="text py-3 px-3">
-                                                        <h3><a href="#">'.$item["name"].'</a></h3>
-                                                        <div class="d-flex">
-                                                            <div class="pricing">
-                                                                <p class="price"><span>$'.$item["price"].' / hr.</span></p>
-                                                            </div>
-                                                            <div class="rating">
-                                                                <p class="text-right">
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                </p>
-                                                            </div>
+            foreach( $res as $item) {
+                echo('<div class="col-sm col-md-6 col-lg-3 ftco-animate" id = "id01">
+                                            <div class="product">
+                                            <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="' . $item["image"] . '" alt="Colorlib Template" style="width:100%" height="10" >
+                                            </a>
+                                                <div class="text py-3 px-3">
+                                                    <h3><a href="#">' . $item["name"] . '</a></h3>
+                                                    <div class="d-flex">
+                                                        <div class="pricing">
+                                                            <p class="price"><span>$' . $item["price"] . '</span></p>
                                                         </div>
-                                                        <hr>
-                                                        <p class="bottom-area d-flex">
-                                                            <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                                                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                                                        </p>
+                                                        <div class="rating">
+                                                            <p class="text-right">
+                                                                <span class="ion-ios-star-outline"></span>
+                                                                <span class="ion-ios-star-outline"></span>
+                                                                <span class="ion-ios-star-outline"></span>
+                                                                <span class="ion-ios-star-outline"></span>
+                                                                <span class="ion-ios-star-outline"></span>
+                                                            </p>
+                                                        </div>
                                                     </div>
+                                                    <hr>
+                                                    <p class="bottom-area d-flex">
+                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                                        <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            ');
+                                        </div>
+                                        ');
             }
             ?>
         </div>

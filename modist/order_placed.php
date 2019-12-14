@@ -31,7 +31,7 @@
 		<div class="container">
 			<?php
 				if(isset($_SESSION['name'])){
-					echo "<a class='navbar-brand' href='index.php'>WELCOME". $_SESSION['name']."</a>";
+					echo "<a class='navbar-brand' href='index.php'>WELCOME ". $_SESSION['name']."</a>";
 				}
 				else{
 					echo "<a class='navbar-brand' href='index.php'>MARXETPLACE</a>";

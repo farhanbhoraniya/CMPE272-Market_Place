@@ -2,7 +2,7 @@
 session_start();
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_URL, 'http://kpsjsuprojects.com/common_products.php');
+curl_setopt($curl, CURLOPT_URL, 'http://varshitbuilds.com/fwa1/popp.php');
 $karanResult = curl_exec($curl);
 $karan = json_decode(
     $karanResult, true
@@ -13,8 +13,8 @@ $karan = json_decode(
 //usort($karan, "cmp");
 // This is for price in descending order
     usort($karan, function($a, $b) {
-        if($a['price']==$b['price']) return 0;
-        return $a['price'] < $b['price']?1:-1;
+        if($a['views']==$b['views']) return 0;
+        return $a['views'] < $b['views']?1:-1;
     });
 curl_close($curl);
 
@@ -96,15 +96,15 @@ curl_close($curl);
             <ul>
                 <li><a href="shop.php">All Products</a></li>
                 <li><a href="house.php">Houses</a></li>
-                <li><a href="travel.php">Travel Experience</a></li>
-                <li class="active" ><a href="cloud.php">Cloud Services</a></li>
+                <li class="active" ><a href="travel.php">Travel Experience</a></li>
+                <li><a href="cloud.php">Cloud Services</a></li>
                 <li><a href="chocolate.php">Chocolates</a></li>
                 <li><a href="marvel.php">Marvel Products</a></li>
                 <br>
-                <li><a href="cloudmv.php">Most Visited</a></li>
-                <li class="active"><a href="cloudhp.php">Highest Price</a></li>
-                <li><a href="cloudlp.php">Lowest Price</a></li>
-                <li><a href="cloudlexi.php">Sort A-Z</a></li>
+                <li  class="active"><a href="travelmv.php">Most Visited</a></li>
+                <li><a href="travelhp.php">Highest Price</a></li>
+                <li><a href="travellp.php">Lowest Price</a></li>
+                <li><a href="travellexi.php">Sort A-Z</a></li>
             </ul>
         </div>
     </div>
@@ -122,7 +122,7 @@ curl_close($curl);
                                                         <h3><a href="#">'.$item["name"].'</a></h3>
                                                         <div class="d-flex">
                                                             <div class="pricing">
-                                                                <p class="price"><span>$'.$item["price"].' / hr.</span></p>
+                                                                <p class="price"><span>$'.$item["price"].'</span></p>
                                                             </div>
                                                             <div class="rating">
                                                                 <p class="text-right">
