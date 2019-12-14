@@ -95,92 +95,45 @@
         <div class="row">
             <div class="col-sm col-md-6 col-lg ftco-animate">
                 <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template"></a>
-                    <div class="text py-4 px-3">
+                    <a href="http://farhanbhoraniya.com/" class="img-prod"><img class="img-fluid" src="images/house.jpg" alt="Colorlib Template"></a>
+                    <div class="text py-3 px-3">
+                        <h3><a href="http://farhanbhoraniya.com/">House</a></h3>
                     </div>
                 </div>
             </div>
             <div class="col-sm col-md-6 col-lg ftco-animate">
                 <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="Colorlib Template"></a>
+                    <a href="http://varshitbuilds.com/fwa1/" class="img-prod"><img class="img-fluid" src="images/destination.jpg" alt="Colorlib Template"></a>
                     <div class="text py-3 px-3">
-                        <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                            <div class="rating">
-                                <p class="text-right">
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <hr>
-                        <p class="bottom-area d-flex">
-                            <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                        </p>
+                        <h3><a href="http://varshitbuilds.com/fwa1/">Travel Destination</a></h3>
                     </div>
                 </div>
             </div>
             <div class="col-sm col-md-6 col-lg ftco-animate">
                 <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="images/product-3.jpg" alt="Colorlib Template"></a>
+                    <a href="http://kpsjsuprojects.com/" class="img-prod"><img class="img-fluid" src="images/server.jpg" alt="Colorlib Template"></a>
                     <div class="text py-3 px-3">
-                        <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                            <div class="rating">
-                                <p class="text-right">
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <hr>
-                        <p class="bottom-area d-flex">
-                            <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                        </p>
+                        <h3><a href="http://kpsjsuprojects.com/">Cloud Service</a></h3>
                     </div>
                 </div>
             </div>
             <div class="col-sm col-md-6 col-lg ftco-animate">
                 <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="Colorlib Template"></a>
+                    <a href="http://yumbox.site/" class="img-prod"><img class="img-fluid" src="images/chocolates.jpg" alt="Colorlib Template"></a>
                     <div class="text py-3 px-3">
-                        <h3><a href="#">Young Woman Wearing Dress</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                            <div class="rating">
-                                <p class="text-right">
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                    <span class="ion-ios-star-outline"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <hr>
-                        <p class="bottom-area d-flex">
-                            <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                        </p>
+                        <h3><a href="http://yumbox.site/">Chocolates</a></h3>
                     </div>
                 </div>
             </div>
+            <div class="col-sm col-md-6 col-lg ftco-animate">
+                <div class="product">
+                    <a href="http://manavrajvanshi.com/#products" class="img-prod"><img class="img-fluid" src="images/robot.jpg" alt="Colorlib Template"></a>
+                    <div class="text py-3 px-3">
+                        <h3><a href="http://manavrajvanshi.com/#products">Marvel Products</a></h3>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -188,7 +141,7 @@
 <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/bg_2.jpg);">
+            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/server2.jpg);">
                 <a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
                     <span class="icon-play"></span>
                 </a>
@@ -200,8 +153,8 @@
                     </div>
                 </div>
                 <div class="pb-md-5">
-                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                    <p>E-commerce is revolutionizing the way we all shop. Why do you want to hop from one store to another in search of the latest phone when you can find it on the Internet in a single click? Not only mobiles. MARXETPLACE houses everything you can possibly imagine, from Trending Technology Stuff, Scalable Cloud Services, Delicious Chocolates, Trusted Real Estate,  and amazing Travel Services, we got them all covered. You name it, and you can stay assured about finding them all here. For those of you with erratic working hours, MARXETPLACE is your best bet. Shop in your PJs, at night or in the wee hours of the morning. This e-commerce never shuts down.</p>
+                    <p>What's more, with our year-round shopping festivals and events, our prices are irresistible. We're sure you'll find yourself picking up more than what you had in mind. If you are wondering why you should shop from MARXETPLACE when there are multiple options available to you, well, a look at our products will answer your question.</p>
                 </div>
             </div>
         </div>
@@ -228,7 +181,7 @@
 		                    </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                        <p class="mb-4">This site has a fresh, beautiful and engaging overall design. My favorite attribute is the color scheme and photography. From the layout to the color scheme and product images, the website’s design complements the brand promise that inner happiness leads to outward beauty.</p>
                                         <p class="name">Roger Scott</p>
                                         <span class="position">Customer</span>
                                     </div>
@@ -242,8 +195,8 @@
 		                    </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                                        <p class="name">Roger Scott</p>
+                                        <p class="mb-4">This is an energetic and personable site that does an excellent job of going beyond a template feel.</p>
+                                        <p class="name">James Noah</p>
                                         <span class="position">Customer</span>
                                     </div>
                                 </div>
@@ -256,36 +209,22 @@
 		                    </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                                        <p class="name">Roger Scott</p>
+                                        <p class="mb-4">They really have me interested in buying one of these things! The site couldn’t be more clear what the product is and how to buy it.</p>
+                                        <p class="name">Joh Liam</p>
                                         <span class="position">Customer</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                                    <div class="user-img mb-4" style="background-image: url(images/person_4.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                                        <p class="name">Roger Scott</p>
-                                        <span class="position">Customer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-		                    <span class="quote d-flex align-items-center justify-content-center">
-		                      <i class="icon-quote-left"></i>
-		                    </span>
-                                    </div>
-                                    <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                                        <p class="name">Roger Scott</p>
+                                        <p class="mb-4">It’s always a challenge organizing large numbers of products, but The Mountain does a great job with this, allowing visitors to quick drill down and find what they are looking for.</p>
+                                        <p class="name">Robert Mason</p>
                                         <span class="position">Customer</span>
                                     </div>
                                 </div>
