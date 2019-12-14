@@ -71,7 +71,7 @@
         <?php
             session_start();
             require_once("send_email.php");
-            $to = "farhanbhoraniya@gmail.com";
+            $to = $_SESSION["email"]; 
             $subject = "Order placed successfully";
             $message = "Your order has been received";
             $retval = send_email($to, $subject, $message);
