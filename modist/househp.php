@@ -72,6 +72,8 @@ curl_close($curl);
                 <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
                 <li class="nav-item active"><a href="shop.php" class="nav-link">Products</a></li>
                 <li class="nav-item active"><a href="login.php" class="nav-link">Log In</a></li>
+                <li class="nav-item active"><a href="marketProfileUpdate.php" class="nav-link">Update Profile</a></li>
+				<li class="nav-item active"><a href="logout.php" class="nav-link">Logout</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span><?php echo isset($_SESSION["cart_item"]) ? sizeof($_SESSION["cart_item"]):0;?></a></li>
 
