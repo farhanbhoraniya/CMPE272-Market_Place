@@ -3,7 +3,34 @@
   <component name="ChangeListManager">
     <list default="true" id="3fb6f279-f7da-4314-b14e-d49c3d0bfc5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marketProfileUpdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/marketProfileUpdate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chocolate.php" beforeDir="false" afterPath="$PROJECT_DIR$/chocolate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chocolatehp.php" beforeDir="false" afterPath="$PROJECT_DIR$/chocolatehp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chocolatelexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/chocolatelexi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chocolatelp.php" beforeDir="false" afterPath="$PROJECT_DIR$/chocolatelp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud.php" beforeDir="false" afterPath="$PROJECT_DIR$/cloud.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloudhp.php" beforeDir="false" afterPath="$PROJECT_DIR$/cloudhp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloudlexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/cloudlexi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloudlp.php" beforeDir="false" afterPath="$PROJECT_DIR$/cloudlp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house.php" beforeDir="false" afterPath="$PROJECT_DIR$/house.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/househp.php" beforeDir="false" afterPath="$PROJECT_DIR$/househp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houselexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/houselexi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houselp.php" beforeDir="false" afterPath="$PROJECT_DIR$/houselp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marvel.php" beforeDir="false" afterPath="$PROJECT_DIR$/marvel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marvelhp.php" beforeDir="false" afterPath="$PROJECT_DIR$/marvelhp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marvellexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/marvellexi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marvellp.php" beforeDir="false" afterPath="$PROJECT_DIR$/marvellp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_placed.php" beforeDir="false" afterPath="$PROJECT_DIR$/order_placed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shophp.php" beforeDir="false" afterPath="$PROJECT_DIR$/shophp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoplexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/shoplexi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoplp.php" beforeDir="false" afterPath="$PROJECT_DIR$/shoplp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel.php" beforeDir="false" afterPath="$PROJECT_DIR$/travel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travelhp.php" beforeDir="false" afterPath="$PROJECT_DIR$/travelhp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travellexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/travellexi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travellp.php" beforeDir="false" afterPath="$PROJECT_DIR$/travellp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewproduct.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +97,7 @@
       <workItem from="1575919057152" duration="14002000" />
       <workItem from="1575935155692" duration="773000" />
       <workItem from="1575936137090" duration="1474000" />
-      <workItem from="1576349830678" duration="7253000" />
+      <workItem from="1576349830678" duration="9318000" />
     </task>
     <servers />
   </component>

@@ -24,7 +24,7 @@ curl_close($curl);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Modist - Free Bootstrap 4 Template by Colorlib</title>
+    <title>MARXETPLACE</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -115,10 +115,10 @@ curl_close($curl);
             foreach( $karan as $item){
                 echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate">
                                                 <div class="product">
-                                                <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
+                                                <a href="viewproduct.php?id=' .$item["id"].'" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
                                                 </a>
                                                     <div class="text py-3 px-3">
-                                                        <h3><a href="#">'.$item["name"].'</a></h3>
+                                                        <h3><a href="viewproduct.php?id=' .$item["id"].'">'.$item["name"].'</a></h3>
                                                         <div class="d-flex">
                                                             <div class="pricing">
                                                                 <p class="price"><span>$'.$item["price"].'</span></p>
