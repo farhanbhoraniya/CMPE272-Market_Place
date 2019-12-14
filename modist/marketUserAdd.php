@@ -15,11 +15,16 @@
     VALUES ('$name', '$email', '$password')" ;
     if ($conn->query($sql) === TRUE) {
         $_SESSION["userAdded"] = "User Added Sucessfully.";
-        header("location: marketUserSection.php");
+        $_SESSION["error"] = "User Added Sucessfully.";
+        header("location: login.php");
     } else {
         $_SESSION["userAdded"] = "User Not Added.";
         header("location: marketUserSection.php");
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
     $conn->close();
+?>
+<?php
+    unset($_SESSION["userAdded"]);
+    unset($_SESSION["error"]);
 ?>
