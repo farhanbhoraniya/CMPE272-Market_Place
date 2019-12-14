@@ -126,7 +126,7 @@ usort($res, function($a, $b) {
                 <li><a href="travel.php">Travel Experience</a></li>
                 <li><a href="cloud.php">Cloud Services</a></li>
                 <li><a href="chocolate.php">Chocolates</a></li>
-                <li><a href="marvel.php">Marvel Toys</a></li>
+                <li><a href="marvel.php">Marvel Products</a></li>
                 <br>
                 <li><a href="shophp.php">Highest Price</a></li>
                 <li class="active" ><a href="shoplp.php">Lowest Price</a></li>
