@@ -222,8 +222,8 @@ if(isset($_POST['rating']))
   <button class="btn btn-primary" type="submit">Submit Feedback</button>
   </fieldset>
                             </form>
-                        </div>';
-
+                        </div><br><br>';
+                            
                             $servername = "manavraj9663703.ipagemysql.com";
                             $username = "jarvis";
                             $password = "pass";
@@ -241,7 +241,7 @@ if(isset($_POST['rating']))
                             echo '<div class="col-sm col-md-1"></div><div class="col-sm col-md-10">';
                             if ($result->num_rows > 0) {
                             // output data of each row
-                                echo '<table class = "table"><tr><th>Email</th><th>Reviews</th></tr>';
+                                echo '<table class = "table table-condensed table-bordered table-sm .table-striped"><tr><th>Email</th><th>Reviews</th></tr>';
                                 while($row = $result->fetch_assoc()) {
                                     echo "<tr><td>".$row['userEmail']."</td><td>".$row['review']."</td></tr>";
                                 }
