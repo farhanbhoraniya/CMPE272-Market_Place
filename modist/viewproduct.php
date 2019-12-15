@@ -1,4 +1,5 @@
 <?php
+session_start();
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_URL, 'http://manavrajvanshi.com/common.php');
@@ -38,6 +39,32 @@ $varshitResult = curl_exec($curl);
 $varshit = json_decode(
     $varshitResult, true);
 curl_close($curl);
+
+
+
+if(isset($_POST['rating']))
+{
+    $rating = $_POST['rating'];
+    $review = $_POST['review'];
+    // echo $rating;
+    // echo $review;
+
+    $servername = "manavraj9663703.ipagemysql.com";
+    $username = "jarvis";
+    $password = "pass";
+    $dbname = "272db";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    parse_str($_SERVER['QUERY_STRING']);
+    $em = $_SESSION['email'];
+    $sql = "INSERT INTO marketFeedback(userEmail,productId,rating,review) VALUES('$email', $id, $rating, '$review')" ;
+    $result = $conn->query($sql);
+
+    $conn->close();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -182,7 +209,7 @@ curl_close($curl);
                             <h3>Price: $'.$currentMarketPlace[($id - 1)%10]["price"].'</h3>
                             <br />
                             <br />
-                            <form action="" method="POST">
+                            <form action="viewproduct.php?id='.$id.'" method="POST">
                             <fieldset>
                             <legend>Submit Feedback</legend>
                                 <div class="form-group">
@@ -190,7 +217,7 @@ curl_close($curl);
                                 </div>
                                 <div class="form-group">
     <label for="review">Review:</label>
-    <textarea class="form-control" id="review" rows="3" required></textarea>
+    <textarea class="form-control" id="review" name="review" rows="3" required></textarea>
   </div>
   <button class="btn btn-primary" type="submit">Submit Feedback</button>
   </fieldset>
