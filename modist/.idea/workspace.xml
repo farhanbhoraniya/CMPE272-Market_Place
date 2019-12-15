@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3fb6f279-f7da-4314-b14e-d49c3d0bfc5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewproduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shophp.php" beforeDir="false" afterPath="$PROJECT_DIR$/shophp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoplexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/shoplexi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoplp.php" beforeDir="false" afterPath="$PROJECT_DIR$/shoplp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel.php" beforeDir="false" afterPath="$PROJECT_DIR$/travel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travelhp.php" beforeDir="false" afterPath="$PROJECT_DIR$/travelhp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travellexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/travellexi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travellp.php" beforeDir="false" afterPath="$PROJECT_DIR$/travellp.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +76,7 @@
       <workItem from="1575919057152" duration="14002000" />
       <workItem from="1575935155692" duration="773000" />
       <workItem from="1575936137090" duration="1474000" />
-      <workItem from="1576349830678" duration="19597000" />
+      <workItem from="1576349830678" duration="20283000" />
     </task>
     <servers />
   </component>

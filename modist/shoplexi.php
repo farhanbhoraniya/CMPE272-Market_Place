@@ -151,7 +151,7 @@ usort($res, "cmp");
                                             <a href="viewproduct.php?id=' .$item["id"].'" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
                                             </a>
                                                 <div class="text py-3 px-3">
-                                                    <h3><a href="viewproduct.php?id=' .$item["id"].'">'.$item["name"].'</a></h3>
+                                                    <h3><a href="viewproduct.php?id=' .$item["id"].'">'.ucfirst($item["name"]).'</a></h3>
                                                     <div class="d-flex">
                                                         <div class="pricing">
                                                             <p class="price"><span>$'.$item["price"].'</span></p>
