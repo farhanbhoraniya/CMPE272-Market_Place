@@ -191,9 +191,9 @@ if(isset($_POST['quality']))
                     }
                     else if((intval($id) >= 401) && (intval($id) <= 410))
                     {
-                        $currentMarketPlace = $farhan;
+                        $currentMarketPlace = $kedar;
                         //Enter Kedar's View Incrementer URL
-                        curl_setopt($curl, CURLOPT_URL, ''. $id);
+                        curl_setopt($curl, CURLOPT_URL, 'http://yumbox.site/productViewIncrementer.php?product='. $id);
                     }
                     else if((intval($id) >= 501) && (intval($id) <= 510))
                     {
@@ -340,7 +340,7 @@ if(isset($_POST['quality']))
                     <div class="col-md-12 text-center">
 
                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reservedjuhyn
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>

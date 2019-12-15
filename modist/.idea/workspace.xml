@@ -3,39 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3fb6f279-f7da-4314-b14e-d49c3d0bfc5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chocolate.php" beforeDir="false" afterPath="$PROJECT_DIR$/chocolate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chocolatehp.php" beforeDir="false" afterPath="$PROJECT_DIR$/chocolatehp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chocolatelexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/chocolatelexi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chocolatelp.php" beforeDir="false" afterPath="$PROJECT_DIR$/chocolatelp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chocolatemv.php" beforeDir="false" afterPath="$PROJECT_DIR$/chocolatemv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud.php" beforeDir="false" afterPath="$PROJECT_DIR$/cloud.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloudhp.php" beforeDir="false" afterPath="$PROJECT_DIR$/cloudhp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloudlexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/cloudlexi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloudlp.php" beforeDir="false" afterPath="$PROJECT_DIR$/cloudlp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloudmv.php" beforeDir="false" afterPath="$PROJECT_DIR$/cloudmv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/house.php" beforeDir="false" afterPath="$PROJECT_DIR$/house.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/househp.php" beforeDir="false" afterPath="$PROJECT_DIR$/househp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/houselexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/houselexi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/houselp.php" beforeDir="false" afterPath="$PROJECT_DIR$/houselp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/housemv.php" beforeDir="false" afterPath="$PROJECT_DIR$/housemv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marvel.php" beforeDir="false" afterPath="$PROJECT_DIR$/marvel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marvelhp.php" beforeDir="false" afterPath="$PROJECT_DIR$/marvelhp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marvellexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/marvellexi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marvellmv.php" beforeDir="false" afterPath="$PROJECT_DIR$/marvellmv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marvellp.php" beforeDir="false" afterPath="$PROJECT_DIR$/marvellp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order_placed.php" beforeDir="false" afterPath="$PROJECT_DIR$/order_placed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shophp.php" beforeDir="false" afterPath="$PROJECT_DIR$/shophp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shoplexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/shoplexi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shoplp.php" beforeDir="false" afterPath="$PROJECT_DIR$/shoplp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopmostvisit.php" beforeDir="false" afterPath="$PROJECT_DIR$/shopmostvisit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel.php" beforeDir="false" afterPath="$PROJECT_DIR$/travel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travelhp.php" beforeDir="false" afterPath="$PROJECT_DIR$/travelhp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travellexi.php" beforeDir="false" afterPath="$PROJECT_DIR$/travellexi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travellp.php" beforeDir="false" afterPath="$PROJECT_DIR$/travellp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travelmv.php" beforeDir="false" afterPath="$PROJECT_DIR$/travelmv.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/viewproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewproduct.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +71,7 @@
       <workItem from="1575919057152" duration="14002000" />
       <workItem from="1575935155692" duration="773000" />
       <workItem from="1575936137090" duration="1474000" />
-      <workItem from="1576349830678" duration="17761000" />
+      <workItem from="1576349830678" duration="19597000" />
     </task>
     <servers />
   </component>
@@ -123,9 +91,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1575928073281" />
-    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576374362235">
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576380294431">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1576374362235" />
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1576380294431" />
   </component>
 </project>
