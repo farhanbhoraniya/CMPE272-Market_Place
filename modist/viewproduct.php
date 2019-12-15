@@ -59,7 +59,7 @@ if(isset($_POST['rating']))
     }
     parse_str($_SERVER['QUERY_STRING']);
     $em = $_SESSION['email'];
-    $sql = "INSERT INTO marketFeedback(userEmail,productId,rating,review) VALUES('$email', $id, $rating, '$review')" ;
+    $sql = "INSERT INTO marketFeedback(userEmail,productId,rating,review) VALUES('$em', $id, $rating, '$review')" ;
     $result = $conn->query($sql);
 
     $conn->close();
