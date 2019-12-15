@@ -241,16 +241,16 @@ if(isset($_POST['rating']))
                             echo '<div class="col-sm col-md-1"></div><div class="col-sm col-md-10">';
                         if ($result->num_rows > 0) {
                         // output data of each row
-                            echo '<table><tr><th>Email</th><th>Reviews</th></tr>'
+                            echo '<table><tr><th>Email</th><th>Reviews</th></tr>';
                             while($row = $result->fetch_assoc()) {
-                                echo "<tr><td>$row['userEmail']</td><td>$row['review']</td></tr>";
+                                echo "<tr><td>".$row['userEmail']."</td><td>".$row['review']."</td></tr>";
                             }
-                            echo "</table>"
+                            echo "</table>";
                         } else {
-                            echo "0 results";
+                            echo "0 reviews";
                         }
                         $conn->close();
-                        echo '</div><div class="col-sm col-md-1"></div>'
+                        echo '</div><div class="col-sm col-md-1"></div>';
                     ?>
             </div>
             </div>
