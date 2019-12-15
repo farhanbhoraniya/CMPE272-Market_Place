@@ -236,21 +236,22 @@ if(isset($_POST['rating']))
                             $sql = "SELECT * from marketFeedback where productId = " .$id ;
                             $result = $conn->query($sql);
 
-                            
+                            echo '<div class ="container">';
 
                             echo '<div class="col-sm col-md-1"></div><div class="col-sm col-md-10">';
-                        if ($result->num_rows > 0) {
-                        // output data of each row
-                            echo '<table><tr><th>Email</th><th>Reviews</th></tr>';
-                            while($row = $result->fetch_assoc()) {
-                                echo "<tr><td>".$row['userEmail']."</td><td>".$row['review']."</td></tr>";
+                            if ($result->num_rows > 0) {
+                            // output data of each row
+                                echo '<table class = "table"><tr><th>Email</th><th>Reviews</th></tr>';
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr><td>".$row['userEmail']."</td><td>".$row['review']."</td></tr>";
+                                }
+                                echo "</table>";
+                            } else {
+                                echo "0 reviews";
                             }
-                            echo "</table>";
-                        } else {
-                            echo "0 reviews";
-                        }
-                        $conn->close();
-                        echo '</div><div class="col-sm col-md-1"></div>';
+                            $conn->close();
+                            echo '</div><div class="col-sm col-md-1"></div>';
+                            echo '</div>';
                     ?>
             </div>
             </div>
