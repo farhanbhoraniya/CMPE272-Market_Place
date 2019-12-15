@@ -217,7 +217,7 @@ if(!empty($_GET["action"])) {
                                             <a href="viewproduct.php?id=' .$item["id"].'" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
                                             </a>
                                                 <div class="text py-3 px-3">
-                                                    <h3><a href="viewproduct.php?id=' .$item["id"].'">'.$item["name"].'</a></h3>
+                                                    <h3><a href="viewproduct.php?id=' .$item["id"].'">'.ucfirst($item["name"]).'</a></h3>
                                                     <div class="d-flex">
                                                         <div class="pricing">
                                                             <p class="price"><span>$'.$item["price"].'</span></p>
@@ -398,7 +398,7 @@ if(!empty($_GET["action"])) {
                     <div class="col-md-12 text-center">
 
                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>

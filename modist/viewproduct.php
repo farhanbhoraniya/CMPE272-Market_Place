@@ -1,4 +1,5 @@
 <?php
+session_start();
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_URL, 'http://manavrajvanshi.com/common.php');
@@ -38,6 +39,32 @@ $varshitResult = curl_exec($curl);
 $varshit = json_decode(
     $varshitResult, true);
 curl_close($curl);
+
+
+
+if(isset($_POST['rating']))
+{
+    $rating = $_POST['rating'];
+    $review = $_POST['review'];
+    // echo $rating;
+    // echo $review;
+
+    $servername = "manavraj9663703.ipagemysql.com";
+    $username = "jarvis";
+    $password = "pass";
+    $dbname = "272db";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    parse_str($_SERVER['QUERY_STRING']);
+    $em = $_SESSION['email'];
+    $sql = "INSERT INTO marketFeedback(userEmail,productId,rating,review) VALUES('$em', $id, $rating, '$review')" ;
+    $result = $conn->query($sql);
+
+    $conn->close();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -182,7 +209,7 @@ curl_close($curl);
                             <h3>Price: $'.$currentMarketPlace[($id - 1)%10]["price"].'</h3>
                             <br />
                             <br />
-                            <form action="" method="POST">
+                            <form action="viewproduct.php?id='.$id.'" method="POST">
                             <fieldset>
                             <legend>Submit Feedback</legend>
                                 <div class="form-group">
@@ -190,171 +217,43 @@ curl_close($curl);
                                 </div>
                                 <div class="form-group">
     <label for="review">Review:</label>
-    <textarea class="form-control" id="review" rows="3" required></textarea>
+    <textarea class="form-control" id="review" name="review" rows="3" required></textarea>
   </div>
   <button class="btn btn-primary" type="submit">Submit Feedback</button>
   </fieldset>
                             </form>
-                        </div>';
-                    ?>
-                        <!-- <?php
-                        foreach( $farhan as $item){
-                            echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate" id = "id01">
-                                            <div class="product">
-                                            <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
-                                            </a>
-                                                <div class="text py-3 px-3">
-                                                    <h3><a href="#">'.$item["name"].'</a></h3>
-                                                    <div class="d-flex">
-                                                        <div class="pricing">
-                                                            <p class="price"><span>$'.$item["price"].'</span></p>
-                                                        </div>
-                                                        <div class="rating">
-                                                            <p class="text-right">
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <p class="bottom-area d-flex">
-                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                                                        <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        ');
-                        }
-                        foreach( $varshit as $item){
-                            echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate" id = "id01">
-                                            <div class="product">
-                                            <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
-                                            </a>
-                                                <div class="text py-3 px-3">
-                                                    <h3><a href="#">'.$item["name"].'</a></h3>
-                                                    <div class="d-flex">
-                                                        <div class="pricing">
-                                                            <p class="price"><span>$'.$item["price"].'</span></p>
-                                                        </div>
-                                                        <div class="rating">
-                                                            <p class="text-right">
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <p class="bottom-area d-flex">
-                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                                                        <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        ');
-                        }
-                        foreach( $karan as $item){
-                                echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate">
-                                                <div class="product">
-                                                <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
-                                                </a>
-                                                    <div class="text py-3 px-3">
-                                                        <h3><a href="#">'.$item["name"].'</a></h3>
-                                                        <div class="d-flex">
-                                                            <div class="pricing">
-                                                                <p class="price"><span>$'.$item["price"].'</span></p>
-                                                            </div>
-                                                            <div class="rating">
-                                                                <p class="text-right">
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                    <span class="ion-ios-star-outline"></span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <hr>
-                                                        <p class="bottom-area d-flex">
-                                                            <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                                                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            ');
+                        </div><br><br>';
+                            
+                            $servername = "manavraj9663703.ipagemysql.com";
+                            $username = "jarvis";
+                            $password = "pass";
+                            $dbname = "272db";
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+                            parse_str($_SERVER['QUERY_STRING']);
+                            $sql = "SELECT * from marketFeedback where productId = " .$id ;
+                            $result = $conn->query($sql);
+
+                            echo '<div class ="container">';
+
+                            echo '<div class="col-sm col-md-1"></div><div class="col-sm col-md-10">';
+                            if ($result->num_rows > 0) {
+                            // output data of each row
+                                echo '<table class = "table table-condensed table-bordered table-sm .table-striped"><tr><th>Email</th><th>Reviews</th></tr>';
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr><td>".$row['userEmail']."</td><td>".$row['review']."</td></tr>";
                                 }
-                        foreach( $kedar as $item){
-                            echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate" id = "id01">
-                                            <div class="product">
-                                            <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
-                                            </a>
-                                                <div class="text py-3 px-3">
-                                                    <h3><a href="#">'.$item["name"].'</a></h3>
-                                                    <div class="d-flex">
-                                                        <div class="pricing">
-                                                            <p class="price"><span>$'.$item["price"].'</span></p>
-                                                        </div>
-                                                        <div class="rating">
-                                                            <p class="text-right">
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <p class="bottom-area d-flex">
-                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                                                        <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        ');
-                        }
-                        foreach( $manav as $item){
-                            echo ('<div class="col-sm col-md-6 col-lg-3 ftco-animate" id = "id01">
-                                            <div class="product">
-                                            <a href="#" class="img-prod"><img class="img-fluid fixed-height" src="'.$item["image"].'" alt="Colorlib Template" style="width:100%" height="10" >
-                                            </a>
-                                                <div class="text py-3 px-3">
-                                                    <h3><a href="#">'.$item["name"].'</a></h3>
-                                                    <div class="d-flex">
-                                                        <div class="pricing">
-                                                            <p class="price"><span>$'.$item["price"].'</span></p>
-                                                        </div>
-                                                        <div class="rating">
-                                                            <p class="text-right">
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                                <span class="ion-ios-star-outline"></span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <p class="bottom-area d-flex">
-                                                        <a href="shop.php?action=add&id='.$item["id"].'" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                                                        <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        ');
-                        }
-                        ?> -->
-                </div>
+                                echo "</table>";
+                            } else {
+                                echo "0 reviews";
+                            }
+                            $conn->close();
+                            echo '</div><div class="col-sm col-md-1"></div>';
+                            echo '</div>';
+                    ?>
+            </div>
             </div>
         </section>
 
@@ -416,7 +315,7 @@ curl_close($curl);
                     <div class="col-md-12 text-center">
 
                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
