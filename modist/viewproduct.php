@@ -44,7 +44,9 @@ curl_close($curl);
 
 if(isset($_POST['rating']))
 {
-    $rating = $_POST['rating'];
+    $satisfaction = $_POST['satisfaction'];
+    $quality = $_POST['quality'];
+    $value_for_money = $_POST['value-for-money'];
     $review = $_POST['review'];
     // echo $rating;
     // echo $review;
@@ -59,7 +61,7 @@ if(isset($_POST['rating']))
     }
     parse_str($_SERVER['QUERY_STRING']);
     $em = $_SESSION['email'];
-    $sql = "INSERT INTO marketFeedback(userEmail,productId,rating,review) VALUES('$em', $id, $rating, '$review')" ;
+    $sql = "INSERT INTO marketFeedback(userEmail,productId,satisfaction,quality,valueForMoney,review) VALUES('$em', $id, $satisaction, $quality, $valueForMoney, '$review')" ;
     $result = $conn->query($sql);
 
     $conn->close();
@@ -200,6 +202,18 @@ if(isset($_POST['rating']))
                     //print_r($currentMarketPlace);
                    // parse_str($_SERVER['QUERY_STRING']);
                     //print_r($currentMarketPlace[($id - 1)%10]);
+                    $servername = "manavraj9663703.ipagemysql.com";
+                            $username = "jarvis";
+                            $password = "pass";
+                            $dbname = "272db";
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+                            parse_str($_SERVER['QUERY_STRING']);
+                            $sqlAvg = "SELECT AVG(satisfaction) AS satisfaction, AVG(quality) AS quality, AVG(valueForMoney) AS valueForMoney FROM marketFeedback where productId = $id";
+                            $result = $conn->query($sqlAvg);
+                            print_r ($result);
                     echo '<div class="col-sm col-md-6">
                         <img src='.$currentMarketPlace[($id - 1)%10]["image"].' style="width:90%;" />
                         </div>
@@ -213,11 +227,13 @@ if(isset($_POST['rating']))
                             <fieldset>
                             <legend>Submit Feedback</legend>
                                 <div class="form-group">
-                                <label for="rating">Rating(0-5):</label><input id="rating" type="number" name="rating" value="3" min="0" max="5" step="0.1"/><br />
+                                <label for="satisaction">Satisfaction(0-5):</label><input id="satisfaction" type="number" name="satisfaction" value="3" min="0" max="5" step="0.1"/><br />
+                                <label for="quality">Quality(0-5):</label><input id="quality" type="number" name="quality" value="3" min="0" max="5" step="0.1"/><br />
+                                <label for="value-for-money">Value For Money(0-5):</label><input id="value-for-money" type="number" name="value-for-money" value="3" min="0" max="5" step="0.1"/><br />
                                 </div>
                                 <div class="form-group">
     <label for="review">Review:</label>
-    <textarea class="form-control" id="review" name="review" rows="3" required></textarea>
+    <textarea maxlength="255" minlength="1" class="form-control" id="review" name="review" rows="3" required></textarea>
   </div>
   <button class="btn btn-primary" type="submit">Submit Feedback</button>
   </fieldset>
@@ -233,6 +249,7 @@ if(isset($_POST['rating']))
                                 die("Connection failed: " . $conn->connect_error);
                             }
                             parse_str($_SERVER['QUERY_STRING']);
+                            $sqlAvg = "SELECT AVG(satisfaction) AS satisfaction, AVG(quality) AS quality, AVG(valueForMoney) AS valueForMoney FROM marketFeedback where productId = $id";
                             $sql = "SELECT * from marketFeedback where productId = " .$id ;
                             $result = $conn->query($sql);
 
